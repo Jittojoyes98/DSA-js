@@ -1,32 +1,33 @@
 /**
  * @param {integer} init
  * @return { increment: Function, decrement: Function, reset: Function }
+ * @concept closure
  */
 var createCounter = function (init) {
-    let resetValue = init
-    let resetSet = false;
-    return {
-        increment: () => {
-            if (resetSet) {
-                init = resetValue
-                resetSet = false
-            }
-            init = init + 1;
-            return init
-        },
-        decrement: () => {
-            if (resetSet) {
-                init = resetValue
-                resetSet = false
-            }
-            init = init - 1;
-            return init
-        },
-        reset: () => {
-            resetSet = true;
-            return resetValue;
-        }
-    }
+  let resetValue = init;
+  let resetSet = false;
+  return {
+    increment: () => {
+      if (resetSet) {
+        init = resetValue;
+        resetSet = false;
+      }
+      init = init + 1;
+      return init;
+    },
+    decrement: () => {
+      if (resetSet) {
+        init = resetValue;
+        resetSet = false;
+      }
+      init = init - 1;
+      return init;
+    },
+    reset: () => {
+      resetSet = true;
+      return resetValue;
+    },
+  };
 };
 
 /**
