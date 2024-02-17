@@ -53,6 +53,28 @@ console.log(Object.keys(obj));
 console.log(Object.values(obj));
 console.log(Object.entries(obj)); //  an array of elements where each has an array of 2 elements, key,value
 
+// 8. Loop through
+let person = { a: 1, b: 5 };
+for (key in person) {
+  console.log(key, person[key]);
+}
+// check if both the objects are equal use is or loop through
+
+console.log(Object.is(person, person1));
+
+// 9. inheritence and prototype
+
+const o1 = {
+  name: "Vishal",
+};
+
+const o2 = {
+  age: 21,
+  __proto__: o1,
+};
+
+console.log(o2.name);
+
 /* <-----Done -------> */
 
 // Questions :
@@ -69,4 +91,47 @@ console.log(obj1.a); // 5
 
 // reason : reference is copied and thus changes everything
 
-//
+// 2. find all player count
+
+const data = {
+  id: 1,
+  name: ["P1", "P4"],
+  next: {
+    id: 2,
+    name: ["P3"],
+    next: {
+      id: 3,
+      name: ["P3", "P4", "P5"],
+      next: {
+        id: 4,
+        name: ["P1", "P2", "P4"],
+        next: {
+          id: 5,
+          name: ["P2", "P3", "P5"],
+          next: null,
+        },
+      },
+    },
+  },
+};
+
+let ans = {};
+let currentArray = [];
+let currentObj = data;
+
+while (true) {
+  if (!currentObj) {
+    break;
+  }
+  currentObj.name.map((val) => {
+    if (ans[val]) {
+      ans[val]++;
+    } else {
+      ans[val] = 1;
+    }
+  });
+  currentObj = currentObj.next;
+}
+
+currentArray = Object.entries(ans);
+console.log(currentArray);
