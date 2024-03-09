@@ -21,15 +21,18 @@ console.log(user.hasOwnProperty("name"));
 user.name = "Jibin";
 user.location = "India";
 console.log(user);
-delete user.location;
+delete user.location; // this property is for objects only.
 console.log(user);
 
 // 5. deep and shallow copy
+/**
+ * @checkout https://www.samanthaming.com/tidbits/70-3-ways-to-clone-objects/
+ */
 
 // since a reference is copied , its called shallow copy
 let ob1 = { a: 1, b: 5 };
 let ob2;
-ob1 = ob2;
+ob2 = ob1;
 
 // deep copy
 let person1 = { a: 1, b: 5 };
