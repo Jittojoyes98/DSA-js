@@ -23,8 +23,13 @@ console.log(arr.indexOf("abcd"));
 // The splice() method adds and/or removes array elements.
 // The splice() method overwrites the original array.
 
-console.log(arr.splice(1, 3)); // removed elements are displayed
-console.log(arr); // the original array is updates
+let arrSplice = [1, 2, 3, 4, 5];
+
+// console.log(arrSplice.splice(3,2)) // removing
+// console.log(arrSplice.splice(3,0,6,7,8)) // adding starting from index 3.not deleting anything so returns [].
+// console.log(arrSplice.splice(4,1,10)) //replacing, returns the deleted [5]
+console.log(arrSplice);
+
 
 // 6.slice is different
 
